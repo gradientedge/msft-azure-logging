@@ -1,0 +1,10 @@
+bak
+.envrc
+dist-esbuild
+node_modules
+node_modules_build
+node_modules_build_bak
+node_modules_deploy
+node_modules_deploy_bak
+.DS_Store
+secrets.txt

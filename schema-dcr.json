@@ -1,0 +1,89 @@
+{
+  "properties": {
+    "schema": {
+      "name": "MyTable_CL",
+      "columns": [
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "AdditionalContext",
+          "type": "dynamic"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Amount",
+          "type": "real"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Computer",
+          "type": "string"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "EventId",
+          "type": "int"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "EventName",
+          "type": "string"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Level",
+          "type": "string"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Message",
+          "type": "string"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Service",
+          "type": "string"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Time",
+          "type": "datetime"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "TimeGenerated",
+          "type": "datetime"
+        },
+        {
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "Valid",
+          "type": "boolean"
+        },
+        {
+          "description": "",
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "OrderId",
+          "type": "string"
+        },
+        {
+          "description": "",
+          "isDefaultDisplay": false,
+          "isHidden": false,
+          "name": "OperationId",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}
