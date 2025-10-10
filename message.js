@@ -185,14 +185,6 @@ export const MEDIUM_MESSAGE_NESTED = {
   traceId: "traceId",
   spanId: "spanId",
   attributes: {
-    OperationId: "AttrOperationId",
-    operation_Id: "Attroperation_Id",
-    OperationName: "AttrOperationName",
-    operation_Name: "Attroperation_Name",
-    TraceId: "AttrTraceId",
-    trace_id: "Attrtrace_id",
-    traceId: "AttrtraceId",
-    spanId: "spanId",
     value1_1: {
       MEDIUM_VALUE,
       value1_2: MEDIUM_VALUE,
@@ -239,6 +231,14 @@ export const MEDIUM_MESSAGE_NESTED = {
       value5_7: MEDIUM_VALUE,
       value5_8: MEDIUM_VALUE,
       value5_9: MEDIUM_VALUE,
-    }
+    },
+    OperationId: "AttrOperationId",
+    operation_Id: "Attroperation_Id",
+    OperationName: "AttrOperationName",
+    operation_Name: "Attroperation_Name",
+    TraceId: "AttrTraceId",
+    trace_id: "Attrtrace_id",
+    traceId: "AttrtraceId",
+    spanId: "spanId",
   },
 }

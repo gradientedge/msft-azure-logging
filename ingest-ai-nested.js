@@ -4,7 +4,7 @@ import { LoggerProvider, SimpleLogRecordProcessor } from "@opentelemetry/sdk-log
 import { logs } from "@opentelemetry/api-logs";
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 import { context, trace } from "@opentelemetry/api";
-import { MEDIUM_MESSAGE, MEDIUM_MESSAGE_NESTED } from './message.js';
+import { MEDIUM_MESSAGE_NESTED } from './message.js';
 
 
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
@@ -23,7 +23,7 @@ const loggerProvider = new LoggerProvider({
 logs.setGlobalLoggerProvider(loggerProvider);
 provider.register()
 
-const message = MEDIUM_MESSAGE_NESTED
+const message = MEDIUM_MESSAGE_NESTED // MEDIUM_MESSAGE
 
 async function main() {
   const logger = logs.getLogger("example-logger");
