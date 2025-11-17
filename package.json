@@ -54,5 +54,10 @@
       "@opentelemetry/api-logs": "0.205.0",
       "@opentelemetry/instrumentation": "0.205.0"
     }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@azure/monitor-opentelemetry-exporter@1.0.0-beta.32": "patches/@azure__monitor-opentelemetry-exporter@1.0.0-beta.32.patch"
+    }
   }
 }
