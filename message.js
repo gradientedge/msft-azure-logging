@@ -173,7 +173,7 @@ export const MEDIUM_MESSAGE = {
 export const MEDIUM_MESSAGE_NESTED = {
   severityNumber: 1,
   other: "value",
-  body: "This is a log message",
+  body: "This is medium nested log message",
 
   // https://learn.microsoft.com/en-us/azure/azure-monitor/app/data-model-complete
   OperationId: "OperationId",
@@ -187,6 +187,9 @@ export const MEDIUM_MESSAGE_NESTED = {
   attributes: {
     value1_1: {
       MEDIUM_VALUE,
+      value1_1_2: {
+        MEDIUM_VALUE,
+      },
       value1_2: MEDIUM_VALUE,
       value1_3: MEDIUM_VALUE,
       value1_4: MEDIUM_VALUE,

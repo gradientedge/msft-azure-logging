@@ -4,7 +4,7 @@ import { LoggerProvider, SimpleLogRecordProcessor } from "@opentelemetry/sdk-log
 import { logs } from "@opentelemetry/api-logs";
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 import { context, trace } from "@opentelemetry/api";
-import { MEDIUM_MESSAGE, MEDIUM_MESSAGE_NESTED } from './message.js';
+import { MEDIUM_MESSAGE } from './message.js';
 
 
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
@@ -23,46 +23,13 @@ const loggerProvider = new LoggerProvider({
 logs.setGlobalLoggerProvider(loggerProvider);
 provider.register()
 
-const messageContent = "t".repeat(1024 * 32)
-const eightKBString = "x".repeat(8 * 1024);
-
-const messageOver32kb = {
-  // body: "this is a message",
-  body: {
-    // message: "this is a message",
-    message: messageContent,
+const message = {
+  body: "this is a message",
+  severityNumber: 1,
+  attributes: {
     arrayOfNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     arrayOfStrings: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"],
     arrayOfObjects: [{ object: 1 }, { object: 2 }],
-  },
-  severityNumber: 1,
-  attributes: {
-    "custom-attribute-string": "string value",
-  }
-}
-
-const structuredMessage = {
-  body: {
-    message: messageContent,
-    arrayOfNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    arrayOfStrings: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"],
-    arrayOfObjects: [{ object: 1 }, { object: 2 }],
-    customObject: {
-      level1: {
-        level2: {
-          level3_1: eightKBString,
-          level3_2: eightKBString,
-          level3_3: eightKBString,
-          // level3_4: eightKBString,
-          // level3_5: eightKBString,
-          // level3_6: eightKBString,
-        }
-      }
-    }
-  },
-  severityNumber: 1,
-  attributes: {
-    "custom-attribute-string": "string value",
   }
 }
 
@@ -71,17 +38,13 @@ async function main() {
 
   // flatten properties up to 100 properties / attributes
   // @type LogRecord
-  console.log("Ingestion AppInsight message length", JSON.stringify(messageOver32kb).length)
+  console.log("Ingestion AppInsight message length", JSON.stringify(message).length)
 
-  // Serialized log body message: {"message":"this is a message","arrayOfNumbers":[1,2,3,4,5,6,7,8,9,10],"arrayOfStrings":["one","two","three","four","five","six","seven","eight","nine","ten"],"arrayOfObjects":[{"object":1},{"object":2}],"customObject":{"level1":{"level2":{"level3":"deep value"}}}}
-  // console.log("Serialized log body message:", messageData.message);
   const tracer = trace.getTracer("example-tracer");
   const span = tracer.startSpan("StartSpan"); // root span for the operation
   await context.with(trace.setSpan(context.active(), span), async () => {
     // This log will carry the active span’s traceId/spanId
-    logger.emit(messageOver32kb)
-    logger.emit(structuredMessage)
-    // logger.emit(MEDIUM_MESSAGE_NESTED)
+    logger.emit(message)
     console.log("OperationId:", span.spanContext().traceId)
     span.end();
   })
