@@ -11,8 +11,8 @@ patchedDependencies:
 
 dependencies:
   '@azure/functions':
-    specifier: 4.8.0
-    version: 4.8.0
+    specifier: 4.11.0
+    version: 4.11.0
   '@azure/functions-opentelemetry-instrumentation':
     specifier: 0.2.0
     version: 0.2.0(@opentelemetry/api@1.9.0)
@@ -291,6 +291,11 @@ packages:
       - supports-color
     dev: false
 
+  /@azure/functions-extensions-base@0.2.0:
+    resolution: {integrity: sha512-ncCkHBNQYJa93dBIh+toH0v1iSgCzSo9tr94s6SMBe7DPWREkaWh8cq33A5P4rPSFX1g5W+3SPvIzDr/6/VOWQ==}
+    engines: {node: '>=18.0'}
+    dev: false
+
   /@azure/functions-opentelemetry-instrumentation@0.2.0(@opentelemetry/api@1.9.0):
     resolution: {integrity: sha512-IvgsbgfIeuR5Q5IDm2ZgiW9b4PumMHZF0UH99zbKlq+YoaMZWucU2rpsUhFugoaPCtsZtEbKA17prv3+URbI9A==}
     engines: {node: '>=18.0'}
@@ -311,13 +316,13 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /@azure/functions@4.8.0:
-    resolution: {integrity: sha512-LNtl3xZNE40vE7+SIST+GYQX5cnnI1M65fXPi26l9XCdPakuQrz54lHv+qQQt1GG5JbqLfQk75iM7A6Y9O+2dQ==}
-    engines: {node: '>=18.0'}
+  /@azure/functions@4.11.0:
+    resolution: {integrity: sha512-J0We2gav3YZFLO9pJlXDKUSOT0r/DzkUaJTaruhm8pwoSMbi4zjsS5N6fARrTel+IBCm77hlD0IgZSKSWvVpUw==}
+    engines: {node: '>=20.0'}
     dependencies:
+      '@azure/functions-extensions-base': 0.2.0
       cookie: 0.7.2
       long: 4.0.0
-      undici: 5.29.0
     dev: false
 
   /@azure/identity@4.12.0:
@@ -783,11 +788,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@fastify/busboy@2.1.1:
-    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
-    engines: {node: '>=14'}
-    dev: false
 
   /@grpc/grpc-js@1.14.1:
     resolution: {integrity: sha512-sPxgEWtPUR3EnRJCEtbGZG2iX8LQDUls2wUS3o27jg07KqJFMq6YDeWvMo1wfpmy3rqRdS0rivpLwhqQtEyCuQ==}
@@ -1967,7 +1967,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       '@azure/core-auth': 1.10.1
-      '@azure/functions': 4.8.0
+      '@azure/functions': 4.11.0
       '@azure/functions-old': /@azure/functions@3.5.1
       '@azure/identity': 4.12.0
       '@azure/monitor-opentelemetry': 1.14.2
@@ -3340,13 +3340,6 @@ packages:
 
   /undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
-  /undici@5.29.0:
-    resolution: {integrity: sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg==}
-    engines: {node: '>=14.0'}
-    dependencies:
-      '@fastify/busboy': 2.1.1
-    dev: false
 
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
